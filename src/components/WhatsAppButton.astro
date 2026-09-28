@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+import { CONTACT } from "../data/site";
+
+const message = encodeURIComponent("Merhaba, kurye teklifi almak istiyorum.");
+const href = `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp'tan yazın"
+  class="group fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:scale-110 hover:shadow-xl"
+>
+  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-40 motion-reduce:hidden"></span>
+  <Icon name="lucide:message-circle" class="relative h-7 w-7" />
+</a>

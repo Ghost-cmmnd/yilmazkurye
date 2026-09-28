@@ -1,0 +1,110 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface OrbitItem {
+  icon: string;
+  label: string;
+}
+
+const inner: OrbitItem[] = [
+  { icon: "lucide:rocket", label: "Jet Teslimat" },
+  { icon: "lucide:bike", label: "Moto Kurye" },
+  { icon: "lucide:calendar-check", label: "Aynı Gün Teslimat" },
+  { icon: "lucide:timer", label: "2 Saatte Kapında" },
+];
+
+const middle: OrbitItem[] = [
+  { icon: "lucide:building-2", label: "Kurumsal Taşımacılık" },
+  { icon: "lucide:store", label: "Mağaza Transferi" },
+  { icon: "lucide:truck", label: "Şehir İçi Lojistik" },
+  { icon: "lucide:ship", label: "Adalar Teslimatı" },
+];
+
+const outer: OrbitItem[] = [
+  { icon: "lucide:map", label: "Tüm İstanbul" },
+  { icon: "lucide:boxes", label: "Toplu Dağıtım" },
+  { icon: "lucide:file-signature", label: "Sözleşmeli Teslimat" },
+  { icon: "lucide:sparkles", label: "Özel Proje Taşımacılığı" },
+];
+
+// Eski sitenin JS bundle'ından çıkarılan gerçek yörünge ayarları (radius/süre/faz/açı)
+const rings = [
+  { items: inner, radius: 160, duration: 23, phase: 0, angles: [15, 105, 195, 285], accent: "text-amber-400" },
+  { items: middle, radius: 280, duration: 31, phase: 50, angles: [22, 112, 202, 292], accent: "text-orange-400" },
+  { items: outer, radius: 410, duration: 47, phase: 110, angles: [8, 98, 188, 278], accent: "text-slate-300" },
+];
+
+const dashedRings = [
+  { radius: 160, opacity: "border-slate-700/50" },
+  { radius: 280, opacity: "border-slate-700/40" },
+  { radius: 410, opacity: "border-slate-700/30" },
+];
+---
+
+<section class="relative overflow-hidden bg-slate-950 py-24 md:py-40">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-[60%] top-[20%] h-[400px] w-[400px] rounded-full bg-amber-500/10 blur-[120px]"></div>
+    <div class="absolute bottom-[20%] right-[60%] h-[300px] w-[300px] rounded-full bg-orange-500/[0.08] blur-[100px]"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-8 text-center md:mb-12" data-reveal="up">
+      <span class="mb-5 inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-4 py-2 text-sm font-medium text-amber-400">
+        <Icon name="lucide:rocket" class="h-4 w-4" />
+        Hizmet Ekosistemimiz
+      </span>
+      <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">
+        Her İhtiyaca <span class="gradient-text">Bir Çözüm</span>
+      </h2>
+    </div>
+
+    <div
+      class="relative mx-auto aspect-square w-full max-w-[300px] overflow-hidden sm:max-w-[420px] lg:max-w-[520px]"
+      data-reveal="scale"
+    >
+      <div class="absolute left-1/2 top-1/2 h-[900px] w-[900px] origin-center -translate-x-1/2 -translate-y-1/2 scale-[0.333] sm:scale-[0.467] lg:scale-[0.578]">
+        {dashedRings.map((ring) => (
+          <div
+            class={`absolute left-1/2 top-1/2 rounded-full border border-dashed ${ring.opacity}`}
+            style={`width:${ring.radius * 2}px;height:${ring.radius * 2}px;margin-left:-${ring.radius}px;margin-top:-${ring.radius}px`}
+          />
+        ))}
+
+        <div class="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+          <div class="flex h-36 w-36 flex-col items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-2xl shadow-amber-500/30 ring-4 ring-slate-800/60 ring-offset-4 ring-offset-slate-950 md:h-40 md:w-40">
+            <span class="text-lg font-black tracking-tight text-white md:text-xl">Yılmaz</span>
+            <span class="-mt-1 text-lg font-black tracking-tight text-white md:text-xl">Kurye</span>
+            <span class="mt-1 text-[9px] font-medium text-white/70 md:text-[10px]">Jet Hızında Teslimat</span>
+          </div>
+        </div>
+
+        {rings.map((ring) =>
+          ring.items.map((item, i) => {
+            const angle = ring.angles[i];
+            const delay = -(ring.duration * (angle + ring.phase)) / 360;
+            return (
+              <div
+                class="orbit-ring absolute left-1/2 top-1/2"
+                style={`width:${ring.radius * 2}px;height:${ring.radius * 2}px;margin-left:-${ring.radius}px;margin-top:-${ring.radius}px;animation:orbit ${ring.duration}s linear infinite;animation-delay:${delay}s`}
+              >
+                <div
+                  class="orbit-counter group absolute left-1/2 top-0"
+                  style={`transform:translateX(-50%);animation:counter-orbit ${ring.duration}s linear infinite;animation-delay:${delay}s`}
+                >
+                  <div class={`flex cursor-default flex-col items-center gap-1.5 rounded-xl px-3 py-2 transition-all duration-300 hover:scale-110 ${ring.accent}`}>
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm transition-colors group-hover:bg-white/20 md:h-11 md:w-11">
+                      <Icon name={item.icon} class="h-5 w-5" />
+                    </div>
+                    <span class="whitespace-nowrap text-[10px] font-medium opacity-80 transition-opacity group-hover:opacity-100 md:text-xs">
+                      {item.label}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  </div>
+</section>

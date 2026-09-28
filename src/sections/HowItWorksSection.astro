@@ -27,7 +27,7 @@ const steps = [
 
 <section id="nasil-calisir" class="scroll-mt-24 bg-white py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
+    <div class="mx-auto max-w-2xl text-center" data-reveal="up">
       <span class="section-eyebrow">Nasıl Çalışır</span>
       <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
         4 Adımda Kurye Hizmeti
@@ -36,7 +36,7 @@ const steps = [
     </div>
 
     <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {steps.map((step) => <StepCard {...step} />)}
+      {steps.map((step, i) => <StepCard {...step} delay={i * 80} />)}
     </div>
   </div>
 </section>

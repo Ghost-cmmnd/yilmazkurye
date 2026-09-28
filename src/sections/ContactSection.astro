@@ -29,7 +29,7 @@ const contactMethods = [
 
 <section id="iletisim" class="scroll-mt-24 bg-white py-20">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
+    <div class="mx-auto max-w-2xl text-center" data-reveal="up">
       <span class="section-eyebrow">İletişim</span>
       <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">Bize Ulaşın</h2>
       <p class="mt-4 text-slate-600">
@@ -38,12 +38,14 @@ const contactMethods = [
     </div>
 
     <div class="mt-12 grid gap-6 sm:grid-cols-3">
-      {contactMethods.map((method) => (
+      {contactMethods.map((method, i) => (
         <a
           href={method.href}
           target={method.href.startsWith("http") ? "_blank" : undefined}
           rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
           class="card-hover flex flex-col items-center rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center"
+          data-reveal="up"
+          style={`--reveal-delay: ${i * 90}ms`}
         >
           <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white">
             <Icon name={method.icon} class="h-6 w-6" />

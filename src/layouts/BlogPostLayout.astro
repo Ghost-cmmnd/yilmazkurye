@@ -28,16 +28,18 @@ const formattedDate = date.toLocaleDateString("tr-TR", {
       Tüm Yazılar
     </a>
 
-    <div class="mt-6 flex items-center gap-3 text-sm text-slate-500">
-      <span class="rounded-full bg-orange-50 px-3 py-1 font-semibold text-orange-700">{category}</span>
-      <span class="flex items-center gap-1">
-        <Icon name="lucide:clock" class="h-4 w-4" />
-        {readTime}
-      </span>
-      <time datetime={date.toISOString()}>{formattedDate}</time>
-    </div>
+    <div data-reveal="up">
+      <div class="mt-6 flex items-center gap-3 text-sm text-slate-500">
+        <span class="rounded-full bg-orange-50 px-3 py-1 font-semibold text-orange-700">{category}</span>
+        <span class="flex items-center gap-1">
+          <Icon name="lucide:clock" class="h-4 w-4" />
+          {readTime}
+        </span>
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+      </div>
 
-    <h1 class="mt-4 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">{title}</h1>
+      <h1 class="mt-4 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">{title}</h1>
+    </div>
 
     <div class="prose prose-slate mt-10 max-w-none prose-headings:font-bold prose-h2:mt-10 prose-h2:text-2xl prose-h3:mt-6 prose-h3:text-lg">
       <slot />

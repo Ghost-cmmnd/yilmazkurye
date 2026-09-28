@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../sections/Hero.astro";
+import ServicesSection from "../sections/ServicesSection.astro";
+import SectorsSection from "../sections/SectorsSection.astro";
+import HowItWorksSection from "../sections/HowItWorksSection.astro";
+import WhyUsSection from "../sections/WhyUsSection.astro";
+import CoverageAreaSection from "../sections/CoverageAreaSection.astro";
+import FaqSection from "../sections/FaqSection.astro";
+import ContactSection from "../sections/ContactSection.astro";
+import CtaBlock from "../components/CtaBlock.astro";
+import { DEFAULT_DESCRIPTION } from "../data/site";
+---
+
+<BaseLayout
+  title="Yılmaz Kurye | İstanbul Moto Kurye Hizmeti - Evrak, Dosya & Paket Taşıma"
+  description={DEFAULT_DESCRIPTION}
+  path="/"
+>
+  <Hero />
+  <ServicesSection />
+  <SectorsSection />
+  <HowItWorksSection />
+  <WhyUsSection />
+  <CoverageAreaSection />
+  <FaqSection />
+  <div class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+    <CtaBlock />
+  </div>
+  <ContactSection />
+</BaseLayout>

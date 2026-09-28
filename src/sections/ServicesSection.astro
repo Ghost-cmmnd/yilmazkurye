@@ -1,0 +1,48 @@
+---
+import ServiceCard from "../components/ServiceCard.astro";
+
+const services = [
+  {
+    icon: "lucide:file-text",
+    title: "Evrak & Belge Taşıma",
+    description:
+      "Hukuki belgeler, sözleşmeler, noter evrakları, mahkeme dosyaları ve resmi yazışmalar. Gizlilik ilkesiyle imzalı teslim garantisi.",
+  },
+  {
+    icon: "lucide:folder-open",
+    title: "Dosya & Klasör Taşıma",
+    description:
+      "Toplu dosya transferi, arşiv taşıma, ofisler arası dosya dağıtımı. Özel koruma ile hasar riski sıfır.",
+  },
+  {
+    icon: "lucide:package",
+    title: "Paket Taşıma",
+    description:
+      "Küçük ve orta boy paketler. Aynı gün teslimat, kapıda imzalı teslim, sigortalı taşımacılık.",
+  },
+  {
+    icon: "lucide:star",
+    title: "Özel & VIP Kurye",
+    description:
+      "Acil teslimat, randevulu teslim, VIP kurye hizmeti. Öncelikli atama ile dakikalar içinde kurye yola çıkar.",
+  },
+];
+---
+
+<section id="hizmetler" class="scroll-mt-24 bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow">Hizmetlerimiz</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        İhtiyacınıza Uygun Kurye Çözümleri
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Evraktan pakete, tek seferlik gönderiden kurumsal anlaşmaya kadar her ihtiyaca uygun hizmet.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+  </div>
+</section>

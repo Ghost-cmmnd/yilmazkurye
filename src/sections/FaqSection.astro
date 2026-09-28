@@ -1,0 +1,50 @@
+---
+import FaqItem from "../components/FaqItem.astro";
+import { CONTACT } from "../data/site";
+
+const faqs = [
+  {
+    question: "Aynı gün teslimat garantisi nasıl çalışıyor?",
+    answer:
+      "İstanbul içi tüm standart gönderilerde aynı gün teslimat garantisi sunuyoruz. Express hizmetimizde ortalama teslimat süresi 30-90 dakikadır.",
+  },
+  {
+    question: "Hangi bölgelere hizmet veriyorsunuz?",
+    answer:
+      "İstanbul'un 39 ilçesine, Avrupa ve Anadolu Yakası'nın tamamına hizmet veriyoruz. Büyükada, Heybeliada, Burgazada ve Kınalıada dahil İstanbul Adaları'na da düzenli kurye hizmeti sunuyoruz.",
+  },
+  {
+    question: "Kurumsal kurye anlaşması nasıl yapılır?",
+    answer:
+      "Bizi arayarak veya iletişim formunu doldurarak ihtiyaç analizinizi birlikte yapıyoruz. Kullanım hacminize göre Başlangıç, Profesyonel veya Enterprise paketlerinden size özel bir teklif hazırlıyoruz.",
+  },
+  {
+    question: "Gönderilerim sigortalı mı taşınıyor?",
+    answer:
+      "Evet, tüm gönderileriniz sigortalı taşınır ve imzalı teslim garantisi ile alıcıya ulaştırılır.",
+  },
+  {
+    question: "7/24 acil kurye çağırabilir miyim?",
+    answer:
+      `Evet. Gece, hafta sonu veya resmi tatil fark etmeksizin ${CONTACT.phoneDisplay} numarasından bize ulaşabilir, öncelikli express kurye talep edebilirsiniz.`,
+  },
+  {
+    question: "Hukuki evraklarım gizlilik içinde mi taşınıyor?",
+    answer:
+      "Hukuki belgeler mühürlü zarflarda, imzalı teslim protokolü ile taşınır. Kuryelerimiz güvenlik kontrolünden geçmiş personeldir.",
+  },
+];
+---
+
+<section id="sss" class="scroll-mt-24 bg-slate-50 py-20">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <span class="section-eyebrow">Sıkça Sorulan Sorular</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">Merak Edilenler</h2>
+    </div>
+
+    <div class="mt-10 space-y-4">
+      {faqs.map((faq) => <FaqItem question={faq.question} answer={faq.answer} />)}
+    </div>
+  </div>
+</section>

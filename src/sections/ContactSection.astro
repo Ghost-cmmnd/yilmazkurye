@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components";
+import { CONTACT } from "../data/site";
+
+const contactMethods = [
+  {
+    icon: "lucide:phone-call",
+    title: "Telefon",
+    value: CONTACT.phoneDisplay,
+    href: `tel:${CONTACT.phoneTel}`,
+    cta: "Hemen Ara",
+  },
+  {
+    icon: "lucide:message-circle",
+    title: "WhatsApp",
+    value: CONTACT.phoneDisplay,
+    href: `https://wa.me/${CONTACT.whatsappNumber}`,
+    cta: "WhatsApp'tan Yaz",
+  },
+  {
+    icon: "lucide:mail",
+    title: "E-posta",
+    value: CONTACT.email,
+    href: `mailto:${CONTACT.email}`,
+    cta: "E-posta Gönder",
+  },
+];
+---
+
+<section id="iletisim" class="scroll-mt-24 bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow">İletişim</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">Bize Ulaşın</h2>
+      <p class="mt-4 text-slate-600">
+        Sorularınız ve kurye talepleriniz için 7/24 buradayız.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-3">
+      {contactMethods.map((method) => (
+        <a
+          href={method.href}
+          target={method.href.startsWith("http") ? "_blank" : undefined}
+          rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          class="card-hover flex flex-col items-center rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center"
+        >
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white">
+            <Icon name={method.icon} class="h-6 w-6" />
+          </span>
+          <h3 class="mt-4 font-semibold text-slate-900">{method.title}</h3>
+          <p class="mt-1 text-sm text-slate-600">{method.value}</p>
+          <span class="mt-4 text-sm font-semibold text-orange-600">{method.cta} →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-8 flex items-center justify-center gap-2 text-sm text-slate-500">
+      <Icon name="lucide:map-pin" class="h-4 w-4 text-orange-500" />
+      {CONTACT.address}
+    </div>
+  </div>
+</section>

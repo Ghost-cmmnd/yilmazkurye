@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT } from "../data/site";
+---
+
+<BaseLayout title="Sayfa Bulunamadı" description="Aradığınız sayfa bulunamadı." path="/404">
+  <section class="flex min-h-[60vh] flex-col items-center justify-center px-4 py-24 text-center">
+    <p class="text-sm font-semibold text-orange-600">404</p>
+    <h1 class="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">Sayfa Bulunamadı</h1>
+    <p class="mt-4 max-w-md text-slate-600">
+      Aradığınız sayfa taşınmış veya kaldırılmış olabilir. Ana sayfaya dönebilir ya da bizi arayabilirsiniz.
+    </p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a href="/" class="btn-primary">Ana Sayfaya Dön</a>
+      <a href={`tel:${CONTACT.phoneTel}`} class="btn-secondary">{CONTACT.phoneDisplay}</a>
+    </div>
+  </section>
+</BaseLayout>

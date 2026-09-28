@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components";
+
+const advantages = [
+  {
+    icon: "lucide:clock",
+    title: "Aynı Gün Teslimat",
+    description: "Express hizmetimizde kuryeniz 30 dakika içinde yola çıkar.",
+  },
+  {
+    icon: "lucide:shield",
+    title: "Sigortalı Taşımacılık",
+    description: "Tüm gönderileriniz sigortalı taşınır, imzalı teslim garantisi sunulur.",
+  },
+  {
+    icon: "lucide:timer",
+    title: "7/24 Kesintisiz Hizmet",
+    description: "Hafta sonu ve resmi tatiller dahil, günün her saati hizmetinizdeyiz.",
+  },
+  {
+    icon: "lucide:navigation",
+    title: "Canlı Kurye Takibi",
+    description: "Gönderinizi anlık takip edin, teslimat anında bildirim alın.",
+  },
+  {
+    icon: "lucide:badge-dollar-sign",
+    title: "Kurumsal Avantajlar",
+    description: "Kurumsal müşterilere özel indirimli paketler ve esnek ödeme seçenekleri.",
+  },
+  {
+    icon: "lucide:user-check",
+    title: "Güvenilir Kadro",
+    description: "Güvenlik kontrolünden geçmiş, deneyimli kurye ekibi.",
+  },
+];
+---
+
+<section id="neden-biz" class="scroll-mt-24 bg-slate-900 py-20 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow bg-amber-500/10 text-amber-400">Neden Biz</span>
+      <h2 class="mt-4 text-3xl font-extrabold sm:text-4xl">Yılmaz Kurye Farkı</h2>
+      <p class="mt-4 text-slate-400">
+        Binlerce evrak ve paket her gün güvenle elden ele ulaşıyor.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {advantages.map((item) => (
+        <div class="rounded-2xl border border-slate-800 bg-slate-800/50 p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white">
+            <Icon name={item.icon} class="h-5 w-5" />
+          </span>
+          <h3 class="mt-4 text-base font-semibold text-white">{item.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+import SectorCard from "../components/SectorCard.astro";
+
+const sectors = [
+  {
+    icon: "lucide:scale",
+    title: "Hukuk Ofisleri & Avukatlar",
+    description: "Mahkeme evrakı teslimi, noter işlemleri, dava dosyası taşıma. Gizlilik garantisi.",
+  },
+  {
+    icon: "lucide:building-2",
+    title: "Şirketler & Kurumsal",
+    description: "Ofisler arası evrak transferi, sözleşme dağıtımı, toplu kurye. Kurumsal anlaşma ile özel fiyatlandırma ve aylık faturalama.",
+  },
+  {
+    icon: "lucide:heart-pulse",
+    title: "Sağlık Kuruluşları",
+    description: "Laboratuvar numunesi, tıbbi evrak, reçete ve ilaç taşıma. Hassas materyaller özel koşullarda taşınır.",
+  },
+  {
+    icon: "lucide:calculator",
+    title: "Muhasebe & Mali Müşavirlik",
+    description: "Fatura, beyanname, mali evrak teslimi, vergi dairesi işlemleri.",
+  },
+  {
+    icon: "lucide:landmark",
+    title: "Gayrimenkul & İnşaat",
+    description: "Tapu evrakları, proje dosyaları, sözleşmeler, teknik belgeler.",
+  },
+  {
+    icon: "lucide:graduation-cap",
+    title: "Eğitim & Üniversiteler",
+    description: "Akademik belgeler, diploma, transkript, sınav evrakları. Kampüsler arası transfer.",
+  },
+];
+---
+
+<section id="sektorler" class="scroll-mt-24 bg-slate-50 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow">Sektörel Çözümler</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        Sektörünüze Özel Kurye Deneyimi
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Farklı sektörlerin farklı ihtiyaçları var — çözümlerimizi buna göre şekillendiriyoruz.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {sectors.map((sector) => <SectorCard {...sector} />)}
+    </div>
+  </div>
+</section>

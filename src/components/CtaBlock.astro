@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import { CONTACT } from "../data/site";
+
+interface Props {
+  heading?: string;
+  subtext?: string;
+}
+
+const {
+  heading = "Kurye İhtiyacınız mı Var?",
+  subtext = "İstanbul genelinde 7/24 moto kurye hizmeti. Hemen arayın.",
+} = Astro.props;
+---
+
+<section class="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-center text-white sm:px-12">
+  <h2 class="text-2xl font-bold sm:text-3xl">{heading}</h2>
+  <p class="mx-auto mt-3 max-w-xl text-slate-300">{subtext}</p>
+  <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+    <a href={`tel:${CONTACT.phoneTel}`} class="btn-primary w-full sm:w-auto">
+      <Icon name="lucide:phone-call" class="h-5 w-5" />
+      {CONTACT.phoneDisplay}
+    </a>
+    <a href="/#iletisim" class="btn-secondary w-full !border-slate-600 !bg-transparent !text-white hover:!bg-white/10 sm:w-auto">
+      Teklif Al
+    </a>
+  </div>
+</section>

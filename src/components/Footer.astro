@@ -1,0 +1,60 @@
+---
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon/components";
+import { CONTACT, NAV_LINKS } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div>
+        <Logo variant="light" />
+        <p class="mt-4 text-sm leading-relaxed text-slate-400">
+          İstanbul genelinde 7/24 moto kurye hizmeti. Evrak, dosya ve paket taşımacılığında güvenilir çözüm ortağınız.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-white">Kurumsal</h3>
+        <ul class="space-y-2 text-sm">
+          {NAV_LINKS.map((link) => (
+            <li><a href={link.href} class="text-slate-400 transition hover:text-white">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-white">Blog</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/blog" class="text-slate-400 transition hover:text-white">Tüm Yazılar</a></li>
+          <li><a href="/blog/istanbul-moto-kurye-hizmeti" class="text-slate-400 transition hover:text-white">Moto Kurye Rehberi</a></li>
+          <li><a href="/blog/hukuk-ofisleri-icin-kurye-hizmeti" class="text-slate-400 transition hover:text-white">Hukuk Ofisleri İçin Kurye</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-white">İletişim</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-2">
+            <Icon name="lucide:phone" class="h-4 w-4 text-orange-400" />
+            <a href={`tel:${CONTACT.phoneTel}`} class="text-slate-400 transition hover:text-white">{CONTACT.phoneDisplay}</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="lucide:mail" class="h-4 w-4 text-orange-400" />
+            <a href={`mailto:${CONTACT.email}`} class="text-slate-400 transition hover:text-white">{CONTACT.email}</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="lucide:map-pin" class="h-4 w-4 text-orange-400" />
+            <span class="text-slate-400">{CONTACT.address}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
+      &copy; {year} Yılmaz Kurye. Tüm hakları saklıdır.
+    </div>
+  </div>
+</footer>

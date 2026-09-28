@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+const europeanSide = [
+  "Beşiktaş", "Şişli", "Bakırköy", "Beyoğlu", "Fatih", "Sarıyer",
+  "Bağcılar", "Başakşehir", "Beylikdüzü", "Esenyurt", "Avcılar", "Zeytinburnu",
+];
+
+const anatolianSide = [
+  "Kadıköy", "Üsküdar", "Ataşehir", "Maltepe", "Kartal", "Pendik",
+  "Ümraniye", "Çekmeköy", "Beykoz", "Kozyatağı", "Bahçelievler", "Mecidiyeköy",
+];
+
+const islands = ["Büyükada", "Heybeliada", "Burgazada", "Kınalıada"];
+---
+
+<section id="kapsama-alani" class="scroll-mt-24 bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow">Hizmet Alanı</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        İstanbul'un 39 İlçesine Teslimat
+      </h2>
+      <p class="mt-4 text-slate-600">
+        Avrupa Yakası ve Anadolu Yakası'nın tamamı kapsama alanımızda. İstanbul Adaları dahil.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+        <h3 class="flex items-center gap-2 font-semibold text-slate-900">
+          <Icon name="lucide:map-pin" class="h-5 w-5 text-orange-600" />
+          Avrupa Yakası
+        </h3>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {europeanSide.map((d) => (
+            <li class="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm">{d}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+        <h3 class="flex items-center gap-2 font-semibold text-slate-900">
+          <Icon name="lucide:map-pin" class="h-5 w-5 text-orange-600" />
+          Anadolu Yakası
+        </h3>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {anatolianSide.map((d) => (
+            <li class="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm">{d}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-50 to-orange-50 p-6">
+        <h3 class="flex items-center gap-2 font-semibold text-slate-900">
+          <Icon name="lucide:ship" class="h-5 w-5 text-orange-600" />
+          İstanbul Adaları
+        </h3>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {islands.map((d) => (
+            <li class="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">{d}</li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-slate-500">
+          Vapur saatlerine göre planlanan rotalarla aynı gün teslimat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

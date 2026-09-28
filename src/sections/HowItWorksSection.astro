@@ -1,0 +1,42 @@
+---
+import StepCard from "../components/StepCard.astro";
+
+const steps = [
+  {
+    step: 1,
+    title: "Arayın veya WhatsApp'tan Yazın",
+    description: "Siparişiniz saniyeler içinde sisteme girer, en yakın müsait kurye size yönlendirilir.",
+  },
+  {
+    step: 2,
+    title: "Kurye Alım Adresine Gelir",
+    description: "Standart siparişlerde kısa sürede, express siparişlerde 15-30 dakika içinde kuryeniz kapınızda.",
+  },
+  {
+    step: 3,
+    title: "Güvenli Şekilde Taşınır",
+    description: "Sigortalı taşımacılık ve gerektiğinde mühürlü zarf ile gönderiniz güvenle yola çıkar.",
+  },
+  {
+    step: 4,
+    title: "İmzalı Teslim & Bildirim",
+    description: "Teslimat tamamlandığında SMS veya WhatsApp ile anında bilgilendirilirsiniz.",
+  },
+];
+---
+
+<section id="nasil-calisir" class="scroll-mt-24 bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="section-eyebrow">Nasıl Çalışır</span>
+      <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        4 Adımda Kurye Hizmeti
+      </h2>
+      <p class="mt-4 text-slate-600">Basit, hızlı ve şeffaf bir süreç.</p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step) => <StepCard {...step} />)}
+    </div>
+  </div>
+</section>

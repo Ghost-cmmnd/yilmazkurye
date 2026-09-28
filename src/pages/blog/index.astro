@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog - Kurye Hizmetleri Rehberi"
+  description="Kurye hizmetleri, İstanbul'da moto kurye, hukuk ofisleri için evrak taşıma ve daha fazlası hakkında rehberler."
+  path="/blog"
+>
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="section-eyebrow">Blog</span>
+      <h1 class="mt-4 text-4xl font-extrabold text-slate-900">Kurye Hizmetleri Rehberi</h1>
+      <p class="mt-4 text-slate-600">
+        Kurye hizmetleri, sektörel çözümler ve İstanbul'da teslimat hakkında bilmeniz gerekenler.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:px-8">
+      {posts.map((post) => (
+        <a
+          href={`/blog/${post.id}`}
+          class="card-hover flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+        >
+          <div class="h-2 w-full bg-gradient-to-r from-amber-500 to-orange-500" />
+          <div class="flex flex-1 flex-col p-6">
+            <span class="w-fit rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700">
+              {post.data.category}
+            </span>
+            <h2 class="mt-4 text-lg font-bold leading-snug text-slate-900">{post.data.title}</h2>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{post.data.description}</p>
+            <div class="mt-4 flex items-center gap-3 text-xs text-slate-500">
+              <span class="flex items-center gap-1">
+                <Icon name="lucide:clock" class="h-3.5 w-3.5" />
+                {post.data.readTime}
+              </span>
+              <span>
+                {post.data.date.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

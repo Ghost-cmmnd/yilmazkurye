@@ -39,6 +39,14 @@ const dashedRings = [
   { radius: 280, opacity: "border-slate-600/50" },
   { radius: 410, opacity: "border-slate-600/40" },
 ];
+
+// Somut güven unsurları — sitedeki diğer bölümlerle (Avantajlar, blog) tutarlı, uydurma istatistik yok
+const trustBadges = [
+  { icon: "lucide:shield-check", text: "Sigortalı Taşımacılık" },
+  { icon: "lucide:file-check", text: "İmzalı Teslim Garantisi" },
+  { icon: "lucide:clock", text: "7/24 Kesintisiz Hizmet" },
+  { icon: "lucide:scale", text: "200+ Hukuk Ofisine Hizmet" },
+];
 ---
 
 <section class="relative overflow-hidden bg-slate-950 py-24 md:py-40">
@@ -105,6 +113,21 @@ const dashedRings = [
           })
         )}
       </div>
+    </div>
+
+    <div class="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+      {trustBadges.map((badge, i) => (
+        <div
+          class="flex items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-3 backdrop-blur"
+          data-reveal="up"
+          style={`--reveal-delay: ${i * 70}ms`}
+        >
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-500/15 text-amber-400">
+            <Icon name={badge.icon} class="h-4 w-4" />
+          </span>
+          <span class="text-sm font-medium text-slate-200">{badge.text}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>

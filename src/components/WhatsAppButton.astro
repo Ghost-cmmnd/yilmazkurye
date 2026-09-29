@@ -11,8 +11,10 @@ const href = `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
   target="_blank"
   rel="noopener noreferrer"
   aria-label="WhatsApp'tan yazın"
-  class="group fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:scale-110 hover:shadow-xl"
+  class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-2xl bg-[#25D366] py-3 pl-3.5 pr-4 text-white shadow-lg shadow-black/25 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-xl"
 >
-  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-40 motion-reduce:hidden"></span>
-  <Icon name="lucide:message-circle" class="relative h-7 w-7" />
+  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/15">
+    <Icon name="lucide:message-circle" class="h-5 w-5" />
+  </span>
+  <span class="whitespace-nowrap text-sm font-semibold">WhatsApp'tan Yazın</span>
 </a>

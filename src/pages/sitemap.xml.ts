@@ -12,6 +12,7 @@ export const GET: APIRoute = async () => {
     { loc: "/#kapsama-alani", priority: "0.9", changefreq: "monthly" },
     { loc: "/#iletisim", priority: "0.9", changefreq: "monthly" },
     { loc: "/blog", priority: "0.8", changefreq: "weekly" },
+    { loc: "/gizlilik-politikasi", priority: "0.3", changefreq: "yearly" },
   ];
 
   const postUrls = posts.map((post) => ({

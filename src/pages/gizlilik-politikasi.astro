@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT, SITE_NAME } from "../data/site";
+---
+
+<BaseLayout
+  title="Gizlilik Politikası"
+  description="Yılmaz Kurye gizlilik politikası ve KVKK aydınlatma metni."
+  path="/gizlilik-politikasi"
+>
+  <article class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Gizlilik Politikası</h1>
+    <p class="mt-2 text-sm text-slate-500">Son güncelleme: 3 Ekim 2026</p>
+
+    <div class="prose prose-slate mt-10 max-w-none prose-headings:font-bold prose-h2:mt-10 prose-h2:text-2xl">
+      <p>
+        Bu sayfa, {SITE_NAME} web sitesini ({CONTACT.email} ile iletişime geçtiğiniz işletmemizi)
+        ziyaret ettiğinizde kişisel verilerinizin nasıl ele alındığını açıklar.
+      </p>
+
+      <h2>Bu site hangi kişisel verileri topluyor?</h2>
+      <p>
+        Açık ve net söyleyelim: bu web sitesinde <strong>hiçbir form, üyelik sistemi, bülten
+        aboneliği veya otomatik veri toplama aracı bulunmuyor</strong>. Siteyi ziyaret ettiğinizde
+        sizden isim, telefon, e-posta gibi hiçbir bilgi talep edilmez ve sitenin kendisi herhangi
+        bir kişisel veriyi toplamaz, kaydetmez veya saklamaz.
+      </p>
+
+      <h2>Bize ulaştığınızda ne oluyor?</h2>
+      <p>Sitedeki "İletişim" butonu veya iletişim bölümü üzerinden bize üç farklı şekilde ulaşabilirsiniz:</p>
+      <ul>
+        <li>
+          <strong>Telefon:</strong> "Hemen Ara" butonuna bastığınızda kendi telefonunuzun arama
+          uygulaması açılır. Görüşme kendi operatörünüz üzerinden gerçekleşir, site bu görüşmeye
+          müdahil değildir.
+        </li>
+        <li>
+          <strong>WhatsApp:</strong> "WhatsApp'tan Yaz" seçeneği sizi doğrudan WhatsApp uygulamasına
+          yönlendirir. Buradaki yazışmalar WhatsApp'ın (Meta) kendi altyapısında gerçekleşir ve
+          WhatsApp'ın kendi gizlilik politikası geçerlidir. Mesajlarınızı yalnızca talebinizi
+          yanıtlamak için kullanırız.
+        </li>
+        <li>
+          <strong>E-posta:</strong> "E-posta Gönder" seçeneği kendi e-posta programınızı açar.
+          Bize gönderdiğiniz e-postalar yalnızca talebinizi/sorunuzu yanıtlamak amacıyla kullanılır,
+          üçüncü taraflarla paylaşılmaz.
+        </li>
+      </ul>
+
+      <h2>Çerezler (Cookies)</h2>
+      <p>
+        Bu site şu anda <strong>hiçbir çerez kullanmamaktadır</strong> — ne gerekli, ne analitik, ne
+        de reklam amaçlı. Site tamamen statik olduğu için ziyaretçi girişi, sepet veya form gibi
+        çereze ihtiyaç duyan bir özellik bulunmuyor. İleride ziyaretçi istatistiği gibi bir araç
+        eklenirse (çerezsiz çalışan bir yöntem tercih edilecektir), bu sayfa güncellenecektir.
+      </p>
+
+      <h2>Veri Güvenliği</h2>
+      <p>
+        Site, tüm bağlantılarda şifreli HTTPS (SSL) protokolünü kullanır; tarayıcınız ile site
+        arasındaki iletişim şifrelenmiş olarak gerçekleşir.
+      </p>
+
+      <h2>KVKK Kapsamındaki Haklarınız</h2>
+      <p>
+        6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamında, bizimle paylaştığınız
+        kişisel verileriniz (örneğin WhatsApp veya e-posta yoluyla ilettiğiniz iletişim bilgileriniz)
+        hakkında bilgi talep etme, verilerinizin düzeltilmesini veya silinmesini isteme hakkına
+        sahipsiniz. Bu haklarınızı kullanmak için {CONTACT.email} adresinden bizimle iletişime
+        geçebilirsiniz.
+      </p>
+
+      <h2>İletişim</h2>
+      <p>
+        Gizlilik politikamızla ilgili sorularınız için:<br />
+        E-posta: {CONTACT.email}<br />
+        Telefon: {CONTACT.phoneDisplay}
+      </p>
+    </div>
+  </article>
+</BaseLayout>

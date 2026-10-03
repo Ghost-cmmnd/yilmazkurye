@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   variant?: "dark" | "light";
 }
@@ -7,8 +9,16 @@ const { variant = "dark" } = Astro.props;
 const textClass = variant === "dark" ? "text-slate-900" : "text-white";
 ---
 
-<a href="/" class="inline-flex items-center">
+<a href="/" class="inline-flex items-center gap-1">
   <span class={`inline-block -skew-x-[8deg] font-black tracking-tight text-2xl ${textClass}`}>
     Yılmaz<span class="gradient-text">Kurye</span>
+  </span>
+  <span class="relative inline-flex items-center">
+    <svg class="absolute right-full mr-0.5 h-5 w-5 text-orange-400/70" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M2 7h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+      <path d="M4 12h9" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+      <path d="M6 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+    </svg>
+    <Icon name="mdi:motorbike" class="h-7 w-7 -skew-x-[8deg] text-orange-500" />
   </span>
 </a>

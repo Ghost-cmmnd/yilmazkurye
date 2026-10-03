@@ -3,24 +3,14 @@ import { Icon } from "astro-icon/components";
 
 const advantages = [
   {
-    icon: "lucide:clock",
-    title: "Aynı Gün Teslimat",
-    description: "Express hizmetimizde kuryeniz 30 dakika içinde yola çıkar.",
+    icon: "lucide:ship",
+    title: "Adalar Dahil Tüm İstanbul",
+    description: "Büyükada, Heybeliada, Burgazada ve Kınalıada dahil İstanbul'un 39 ilçesine düzenli teslimat.",
   },
   {
-    icon: "lucide:shield",
-    title: "Sigortalı Taşımacılık",
-    description: "Tüm gönderileriniz sigortalı taşınır, imzalı teslim garantisi sunulur.",
-  },
-  {
-    icon: "lucide:timer",
-    title: "7/24 Kesintisiz Hizmet",
-    description: "Hafta sonu ve resmi tatiller dahil, günün her saati hizmetinizdeyiz.",
-  },
-  {
-    icon: "lucide:navigation",
-    title: "Canlı Kurye Takibi",
-    description: "Gönderinizi anlık takip edin, teslimat anında bildirim alın.",
+    icon: "lucide:message-square",
+    title: "Teslim Anında Bildirim",
+    description: "Paketiniz teslim edildiğinde SMS veya WhatsApp üzerinden anında haberdar olursunuz.",
   },
   {
     icon: "lucide:badge-dollar-sign",
@@ -45,7 +35,7 @@ const advantages = [
       </p>
     </div>
 
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
       {advantages.map((item, i) => (
         <div
           class="rounded-2xl border border-slate-800 bg-slate-800/50 p-6"

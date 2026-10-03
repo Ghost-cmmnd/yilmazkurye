@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon/components";
+import { CONTACT } from "../data/site";
+
+const message = encodeURIComponent("Merhaba, kurye teklifi almak istiyorum.");
+const whatsappHref = `https://wa.me/${CONTACT.whatsappNumber}?text=${message}`;
+
+const options = [
+  {
+    href: whatsappHref,
+    label: "WhatsApp'tan Yaz",
+    icon: "simple-icons:whatsapp",
+    bg: "bg-[#25D366]",
+    external: true,
+  },
+  {
+    href: `tel:${CONTACT.phoneTel}`,
+    label: "Hemen Ara",
+    icon: "lucide:phone-call",
+    bg: "bg-gradient-to-br from-amber-500 to-orange-500",
+    external: false,
+  },
+  {
+    href: `mailto:${CONTACT.email}`,
+    label: "E-posta Gönder",
+    icon: "lucide:mail",
+    bg: "bg-slate-700",
+    external: false,
+  },
+];
+---
+
+<div id="contact-fab" class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+  <div id="contact-options" class="hidden flex-col items-end gap-2.5">
+    {options.map((opt) => (
+      <a
+        href={opt.href}
+        target={opt.external ? "_blank" : undefined}
+        rel={opt.external ? "noopener noreferrer" : undefined}
+        class={`flex items-center gap-2.5 rounded-xl ${opt.bg} py-2.5 pl-3 pr-4 text-white shadow-lg shadow-black/20 ring-1 ring-black/5 transition hover:-translate-y-0.5`}
+      >
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/15">
+          <Icon name={opt.icon} class="h-3.5 w-3.5" />
+        </span>
+        <span class="whitespace-nowrap text-sm font-semibold">{opt.label}</span>
+      </a>
+    ))}
+  </div>
+
+  <button
+    type="button"
+    id="contact-fab-toggle"
+    aria-label="İletişim seçeneklerini aç"
+    aria-expanded="false"
+    class="flex items-center gap-2.5 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 py-3 pl-3.5 pr-4 text-white shadow-lg shadow-black/25 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-xl"
+  >
+    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/15">
+      <Icon name="lucide:message-circle" class="h-4 w-4" id="contact-fab-icon-open" />
+      <Icon name="lucide:x" class="hidden h-4 w-4" id="contact-fab-icon-close" />
+    </span>
+    <span class="whitespace-nowrap text-sm font-semibold">İletişim</span>
+  </button>
+</div>
+
+<script>
+  const toggle = document.getElementById("contact-fab-toggle");
+  const options = document.getElementById("contact-options");
+  const iconOpen = document.getElementById("contact-fab-icon-open");
+  const iconClose = document.getElementById("contact-fab-icon-close");
+  const fab = document.getElementById("contact-fab");
+
+  const setOpen = (open: boolean) => {
+    options?.classList.toggle("hidden", !open);
+    options?.classList.toggle("flex", open);
+    iconOpen?.classList.toggle("hidden", open);
+    iconClose?.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = options?.classList.contains("flex");
+    setOpen(!isOpen);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (fab && !fab.contains(e.target as Node)) setOpen(false);
+  });
+</script>

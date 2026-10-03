@@ -1,5 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import logoBadge from "../assets/brand/logo-badge.png";
 
 interface Props {
   variant?: "dark" | "light";
@@ -10,8 +11,6 @@ const textClass = variant === "dark" ? "text-slate-900" : "text-white";
 ---
 
 <a href="/" class="inline-flex items-center gap-2 font-extrabold text-xl tracking-tight">
-  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-md shadow-orange-500/30">
-    <Icon name="lucide:zap" class="h-5 w-5" />
-  </span>
+  <Image src={logoBadge} alt="Yılmaz Kurye logosu" width={40} height={40} class="h-10 w-10" />
   <span class={textClass}>Yılmaz<span class="gradient-text">Kurye</span></span>
 </a>
